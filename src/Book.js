@@ -24,7 +24,7 @@ class Book extends Component{
 	                {book.imageLinks&&<div className="book-cover" style={{width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})`}}></div>}
 	                <div className="book-shelf-changer">
 	                    <select tabIndex="0" ref={book.shelf} aria-label="Choose category for book" className="select-shelf" value={book.shelf} onChange = {(e)=> this.props.onChangeCategory(book,e.target.value)}>       
-	                        <option value="test">Move to...</option>
+	                        <option value="test" disabled="true">Move to...</option>
 	                        <option value="currentlyReading">Currently Reading</option>
 	                        <option value="wantToRead">Want to Read</option>
 	                        <option value="read">Read</option>
