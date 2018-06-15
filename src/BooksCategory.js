@@ -12,7 +12,8 @@ class BooksCategory extends Component{
 						<ol className="books-grid">
 							{this.props.books.filter(book => book.shelf === category.id).map((book) =>(
 							<li key={book.id}>
-								<Book book={book}/>
+								<Book book={book}
+								onChangeCategory={this.props.onChangeCategory}/>
 							</li>
 							))}
 						</ol>
