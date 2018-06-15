@@ -172,3 +172,20 @@ body, .app {
   text-align: center;
   font-size: 0.8em;
 }
+
+.close{
+  color: white;
+  background-color: black;
+  font-size: 25px;
+  margin-top: 25px;
+  cursor: pointer;
+}
+
+.close:hover,.details:hover{
+  text-decoration: underline;
+}
+
+.details{
+  color: blue;
+  cursor: pointer;
+}

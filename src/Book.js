@@ -5,11 +5,11 @@ class Book extends Component{
 			display:'none'
 		}
 
-	displayDetails(){
+	displayDetails=() =>{
 		this.setState({display:'block'})
 	}
 
-	closeDisplay(){
+	closeDisplay = () =>{
 		this.setState({display:'none'})
 	}
 	render(){
@@ -34,9 +34,17 @@ class Book extends Component{
 	            </div>
 	          	{book.title && <div className="book-title" tabIndex="0">{book.title}</div>}
 	          	{book.authors && <div className="book-authors" tabIndex="0">{book.authors}</div>}
-	          	<p className="details" onClick={this.openPopup}>More details »</p>
+	          	<p className="details" onClick={this.displayDetails}>More details »</p>
           		</div>
-			
+				<div className="book-details" style={{display:this.state.display}}>
+					{book.imageLinks && <div className="book-cover" style={{backgroundImage:`url(${book.imageLinks.smallThumbnail})`}}></div>}
+					{book.title && <div className="book-title-details" tabIndex="0">{book.title}</div>}
+					{book.description && <div className="book-pageCount-details" tabIndex="0">{book.description}</div>}
+					{book.pageCount && <div className="book-pageCount-details" tabIndex="0">Page Count: {book.pageCount}</div>}
+					{book.canonicalVolumeLink && (<div><a className="book-link-details" target="_blank" href={`${book.canonicalVolumeLink}`}>Visit the page about this book</a></div>)}
+
+					<span className="close" onClick={this.closeDisplay}>Close X</span>
+				</div>
           </div>
 		)
 	}
